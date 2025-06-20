@@ -21,7 +21,7 @@ jobs:
 
       - name: Deploy via SSH
         run: |
-          ssh -o StrictHostKeyChecking=no broadvoice@37.72.173.46 << 'EOF'
+          ssh -o StrictHostKeyChecking=no broadvoice@37.72.173.46 -p222 << 'EOF'
             cd /var/www/experience.gocontact.com.co
             git pull origin main
             composer install --no-interaction --prefer-dist --optimize-autoloader
