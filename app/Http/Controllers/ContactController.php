@@ -154,7 +154,7 @@ class ContactController extends Controller
             'origin' => $request->origin,
             'destination' => $request->destination,
             'reservation_number' => $reservation,
-            'status' => '1'
+            'status' => 'Confirmed'
         ]);
 
         $reservationResponse = $response->object();
