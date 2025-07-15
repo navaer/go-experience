@@ -4,14 +4,82 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    background-image: url('../images/travel/hero-bg.jpg' );
+    background-image: url('../images/travel/hero-bg.jpg');
     background-size: 100%;
     background-repeat: no-repeat;
+}
+
+body.itinerary-page{
+    background-image: none;
+}
+
+body.itinerary-page::before{
+    content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 73vh; /* O un valor fijo */
+  background-image: url('../images/travel/itinerary-hero.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.itinerary-page .hero{
+    padding-bottom: 5vh;
+}
+
+.itinerary-page #form {
+    position: relative;
+    top: 10vh;
 }
 
 a{
     text-decoration: none;
     color: #0271AC;
+}
+
+.itinerary-page #form .form-container{
+    background-color: white;
+    box-shadow: 0px 1px 8px #00000015;
+    color: #39BDCD;
+    border-radius: 10px;
+}
+
+/* passenger-counter */
+.passenger-count {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.passenger-btn {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 20%;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+    aspect-ratio: 1;
+    padding: 0;
+    border: none;
+    box-shadow: 2px 2px 8px 0px #00000021;
+    color: #39BDCD;
+}
+
+.passenger-btn:hover {
+    background: #e0e0e0;
+}
+#passengerNumber {
+    width: 30px;
+    text-align: end;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    padding: 0;
 }
 
 /*  styling */
@@ -330,6 +398,10 @@ strong.light {
     background-size: cover;
 }
 
+.itinerary-page .form-container::after{
+    display: none;
+}
+
 .cta-button:hover, .lang-switch ul li a:hover {
     transition: all 0.3s;
     filter: brightness(1.1);
@@ -489,7 +561,221 @@ footer p {
     margin: 0;
 }
 
+/*Itinerary*/
+
+section#itinerary-cards {
+    max-width: 680px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+
+
+.add-options {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.option {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.option input[type="radio"] {
+    width: fit-content;
+    margin-right: 10px;
+    accent-color: cadetblue;
+}
+
+.option input, .option label {
+    margin: 0;
+}
+
+.option label {
+    color: black;
+    font-size: 12px;
+}
+
+.itinerary-menu-btns {
+    position: absolute;
+    top: -10px;
+}
+
+.itinerary-btn {
+    color: #39BDCD;
+    padding: 6px 12px;
+    font-size: 13px;
+    border: none;
+    background: white;
+    box-shadow: 0px 0px 8px 2px #00000030;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.itinerary-btn:hover, .itinerary-btn:active {
+    background: linear-gradient(45deg, #FBAD2C, #F18100);
+    color: white;
+    transition: all 0.4s ease;
+}
+
+.itinerary-page .form-container:has(.itinerary-menu-btns) form {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.it-field {
+    width: 100%;
+    font-size: 12px;
+    padding: 7px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.it-field label {
+    margin: 0;
+    text-transform: uppercase;
+    color: darkgray;
+}
+
+.it-field input {
+    font-size: 12px;
+    margin: 0;
+    padding: 2px;
+    border: none;
+}
+
+.itinerary-page .form-container:has(.itinerary-menu-btns) form .cta-button {
+    margin: 0;
+    background: #39BDCD;
+    aspect-ratio: 1;
+    padding: 5px;
+}
+
+.itinerary-page .form-container:has(.itinerary-menu-btns) form .cta-button svg {
+    max-width: 40px;
+}
+
+.it-card {
+    border: 2px solid #39BDCD;
+    margin: 10px 0;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.it-card > h4 {
+    margin: 0;
+    padding: 5px 10px;
+    background: #39BDCD;
+    color: white;
+    border-radius: 8px;
+    font-weight: 400;
+    position: absolute;
+    width: 90%;
+    max-width: 600px;
+    top: -15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.it-card-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-box {
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+
+.info-box h4 {
+    margin: 5px 0;
+    font-size: 13px;
+}
+
+.info-box small {
+    font-size: 11px;
+    color: darkgray;
+}
+
+.nobox-info h3 {
+    margin: 4px 0;
+    color: #39BDCD;
+}
+
+.book-btn {
+    display: block;
+    width: 90%;
+    background: #39BDCD;
+    color: white;
+    font-family: 'Montserrat';
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+}
+
+.book-btn:hover, .book-btn:active {
+    background: linear-gradient(45deg, #FBAD2C, #F18100);
+    color: white;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.it-card > p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.nobox-info small {
+    font-size: 12px;
+    color: darkgray;
+}
+
+.it-card.orng {
+    border-color: #F18100;
+}
+
+.it-card.orng > h4 {
+    background: #F18100;
+}
+
+.it-card.orng .nobox-info h3 {
+    color: #F18100;
+}
+
+.it-card.orng .book-btn {
+    background: #F18100;
+}
+
+.it-card.orng .book-btn:hover,
+.it-card.orng .book-btn:active {
+    background: #39BDCD;
+}
+
+
+
+
 /* Responsive styling */
+
+@media screen and (min-height:1081px){
+    body.itinerary-page::before {
+        height: 55vh;
+    }
+}
+
 @media screen and (max-width:1024px){
     .form-container::after {
         right: -15vw;
@@ -533,6 +819,48 @@ footer p {
 }
 
 @media screen and (max-width:600px){
+
+    .it-card {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .info-box {
+        margin-bottom: 15px;
+    }
+
+    .it-card-grid {
+        display: block;
+    }
+
+    .itinerary-page .form-container:has(.itinerary-menu-btns) form .cta-button {
+        grid-column: 1 / -1;
+        margin-top: 10px;
+        aspect-ratio: unset;;
+    }
+
+    .it-field {
+        width: 90%;
+    }
+
+    .itinerary-page .form-container:has(.itinerary-menu-btns) form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .itinerary-menu-btns {
+        position: unset;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .itinerary-btn {
+        display: block;
+        width: 100%;
+    }
+
     .form-container {
         color: rgb(34, 34, 34);
         background-color: #f4f4f4;
@@ -540,6 +868,10 @@ footer p {
         border-radius: 0;
         margin-bottom: 100px;
         position: relative;
+    }
+
+    .add-options {
+        width: 100%;
     }
 
     .escapes-image {

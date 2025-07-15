@@ -24,8 +24,12 @@ Route::middleware(['auth'])->group(function () {
 
 Route::resource('contacts', ContactController::class);
 
+Route::get('travel/itinerary', function () {
+    return view('travel.itinerary');
+})->name('travel.itinerary');
+
 Route::get('travel', function () {
-    return view('travel');
+    return view('travel.index');
 })->name('travel');
 
 require __DIR__.'/auth.php';

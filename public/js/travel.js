@@ -23,3 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Hamburger menu or navigation elements not found in the DOM.');
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const decreaseBtn = document.getElementById('decreasePassenger');
+    const increaseBtn = document.getElementById('increasePassenger');
+    const input = document.getElementById('passengerNumber');
+
+    if (decreaseBtn && increaseBtn && input) {
+        decreaseBtn.addEventListener('click', function() {
+            if (parseInt(input.value) > 1) input.value = parseInt(input.value) - 1;
+        });
+        increaseBtn.addEventListener('click', function() {
+            if (parseInt(input.value) < 10) input.value = parseInt(input.value) + 1;
+        });
+    } else {
+        console.error('Passenger controls or input not found in the DOM.');
+    }
+});
