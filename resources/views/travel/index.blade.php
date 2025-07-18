@@ -142,7 +142,6 @@
     <script>
         if (typeof Visor !== 'undefined' && Visor) {
             Visor.init({
-                environment: 'production',
                 apptoken: 'f3899880-87eb-11ef-abb9-2bbf72490c1f',
                 tab: '686eb620fabf4f0cb719e174',
             });
