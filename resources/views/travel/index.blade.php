@@ -134,3 +134,18 @@
         </div>
     </section>
 @endsection
+
+@section('custom-scripts')
+    <div id='example-widget-container'>
+        <script src='https://chatwidget-flows2-0.visor.ai/dist/js/visor.js'></script>
+    </div>
+    <script>
+        if (typeof Visor !== 'undefined' && Visor) {
+            Visor.init({
+                apptoken: 'f3899880-87eb-11ef-abb9-2bbf72490c1f',
+                tab: '686eb620fabf4f0cb719e174',
+            });
+        }
+    </script>
+    <script src='https://chatwidget-flows2-0.visor.ai/socket.io/socket.io.js'></script>
+@endsection
