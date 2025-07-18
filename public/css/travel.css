@@ -4,23 +4,23 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    background-image: url('../images/travel/hero-bg.jpg');
+    background-image: url("content/img/hero-bg.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
 }
 
-body.itinerary-page{
+body:has(.itinerary-page){
     background-image: none;
 }
 
-body.itinerary-page::before{
+body:has(.itinerary-page)::before{
     content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 73vh; /* O un valor fijo */
-  background-image: url('../images/travel/itinerary-hero.jpg');
+  background-image: url(content/img/itinerary-hero.jpg);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -157,7 +157,7 @@ a{
     position: absolute;
     top: 10px;
     right: 15px;
-    background-image: url('../images/travel/chevron-right.png');
+    background-image: url(content/img/chevron-right.png);
     background-size: contain;
 }
 
@@ -256,7 +256,7 @@ a{
 .escapes-copy p {
     font-size: 20px;
     width: 90%;
-}
+} 
 
 #affirm {
     margin: 50px 0;
@@ -270,7 +270,7 @@ a{
 
 .affirm-title h2 {
     font-size: 1.8em;
-
+    
 }
 
 strong.light {
@@ -392,7 +392,7 @@ strong.light {
     width: 200px;
     height: 400px;
     position: absolute;
-    background-image: url('../images/travel/form.gif');
+    background-image: url(content/img/form.gif);
     top: 10vh;
     right: -10vw;
     background-size: cover;
@@ -572,7 +572,7 @@ section#itinerary-cards {
 
 
 .add-options {
-    display: flex;
+    display: none;
     width: 80%;
     justify-content: space-around;
     align-items: center;
@@ -618,7 +618,7 @@ section#itinerary-cards {
     transition: all 0.4s ease;
 }
 
-.itinerary-btn:hover, .itinerary-btn:active {
+.itinerary-btn:hover, .itinerary-btn:active, .itinerary-btn.active {
     background: linear-gradient(45deg, #FBAD2C, #F18100);
     color: white;
     transition: all 0.4s ease;
@@ -698,6 +698,8 @@ section#itinerary-cards {
     padding: 10px;
     border: 1px solid lightgray;
     border-radius: 8px;
+    min-width: 70%;
+    max-width: 445px;
 }
 
 .info-box h4 {
@@ -737,6 +739,7 @@ section#itinerary-cards {
 .it-card > p {
     margin: 0;
     font-size: 13px;
+    margin-top: 15px;
 }
 
 .nobox-info small {
@@ -765,13 +768,26 @@ section#itinerary-cards {
     background: #39BDCD;
 }
 
+/*confirmation-fix*/
+
+.book-btn, .price {
+    display: none;
+}
+
+.confirmation-nmbr {
+    font-size: 14px;
+    color: darkgray;
+    margin:0;
+    margin-top: 15px;
+}
+
 
 
 
 /* Responsive styling */
 
 @media screen and (min-height:1081px){
-    body.itinerary-page::before {
+    body:has(.itinerary-page)::before {
         height: 55vh;
     }
 }
