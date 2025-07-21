@@ -7,7 +7,7 @@
     <main class="itinerary-page">
         <section class="hero">
             <h1>Your Greek Adventure</h1>
-            <h4>Here's your confirmation details, enjoy your trip!</h4>           
+            <h4>Here's your confirmation details, enjoy your trip!</h4>
         </section>
         <section id="form">
             <div class="form-container">
@@ -40,19 +40,19 @@
                 <form disabled action="#" method="post">
                     <div class="it-field">
                         <label for="from">From:</label>
-                        <input disabled type="text" id="from" name="from" value="Philadelphia" required>
+                        <input disabled type="text" id="from" name="from" value="{{ $reservation->origin }}" required>
                     </div>
                     <div class="it-field">
                         <label for="to">To:</label>
-                        <input disabled type="text" id="to" name="to" value="Santorini International Airport  (JTR)" required>
+                        <input disabled type="text" id="to" name="to" value="{{ $reservation->destination }}" required>
                     </div>
                     <div class="it-field">
                         <label for="departure-date">Departure:</label>
-                        <input disabled type="date" id="departure-date" name="departure-date" value="2025-06-12" required>
+                        <input disabled type="date" id="departure-date" name="departure-date" value="{{ $reservation->arrival_date }}" required>
                     </div>
                     <div class="it-field">
                         <label for="return-date">Return:</label>
-                        <input disabled type="date" id="return-date" name="return-date" value="2025-06-21" required>
+                        <input disabled type="date" id="return-date" name="return-date" value="{{ $reservation->departure_date }}" required>
                     </div>
 
                     <button type="submit" class="cta-button" aria-label="Submit">
@@ -61,7 +61,7 @@
                         </svg>
                     </button>
                 </form>
-                <p class="confirmation-nmbr">Your confirmation number: <strong>GT-SOFIA21</strong></p>
+                <p class="confirmation-nmbr">Your confirmation number: <strong>{{ $reservation->reservation_number }}</strong></p>
             </div>
         </section>
         <section id="itinerary-cards">
@@ -84,7 +84,7 @@
                         </small>
                     </div>
                 </div>
-                <p>American • Economy • Airbus A333 • AA 944</p> 
+                <p>American • Economy • Airbus A333 • AA 944</p>
             </div>
             <div class="it-card">
                 <div class="it-card-grid">
@@ -104,7 +104,7 @@
                         </small>
                     </div>
                 </div>
-                <p>British Airways • Economy • Airbus A355 • BA 66</p> 
+                <p>British Airways • Economy • Airbus A355 • BA 66</p>
             </div>
             <div class="it-card">
                 <div class="it-card-grid">
@@ -124,7 +124,7 @@
                         </small>
                     </div>
                 </div>
-                <p>British Airways • Economy • Airbus A320 • BA 54</p> 
+                <p>British Airways • Economy • Airbus A320 • BA 54</p>
             </div>
             <br><br>
              <div class="it-card orng">
@@ -146,7 +146,7 @@
                         </small>
                     </div>
                 </div>
-                <p>Aegean • Economy • Airbus A320neo • A3 351</p> 
+                <p>Aegean • Economy • Airbus A320neo • A3 351</p>
             </div>
             <div class="it-card orng">
                 <div class="it-card-grid">
@@ -166,7 +166,7 @@
                         </small>
                     </div>
                 </div>
-                <p>American • Economy • Boeing 787 • AA 759  </p> 
+                <p>American • Economy • Boeing 787 • AA 759  </p>
             </div>
 
             <div class="it-card orng">
@@ -187,7 +187,7 @@
                         </small>
                     </div>
                 </div>
-                <p>British Airways • Economy • Airbus A320 • BA 54</p> 
+                <p>British Airways • Economy • Airbus A320 • BA 54</p>
             </div>
             <br><br><br>
         </section>

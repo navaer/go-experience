@@ -91,7 +91,7 @@ class ContactController extends Controller
             flash(__('Whoops! Something went wrong.'))->error();
         }
 
-        return redirect('travel');
+        return redirect('travel/itinerary/' . $reservation);
     }
 
     /**

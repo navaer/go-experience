@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ItineraryController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -24,9 +25,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::resource('contacts', ContactController::class);
 
-Route::get('travel/itinerary', function () {
-    return view('travel.itinerary');
-})->name('travel.itinerary');
+Route::get('travel/itinerary/{id}', [ItineraryController::class, 'show']);
 
 Route::get('travel', function () {
     return view('travel.index');
