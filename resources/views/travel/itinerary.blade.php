@@ -6,8 +6,8 @@
 @section('main-content')
     <main class="itinerary-page">
         <section class="hero">
-            <h1>Your Greek Adventure</h1>
-            <h4>Here's your confirmation details, enjoy your trip!</h4>
+            <h1>Your Adventure Awaits</h1>
+            <h4>Here are your confirmation details. Enjoy your trip!</h4>
         </section>
         <section id="form">
             <div class="form-container">
