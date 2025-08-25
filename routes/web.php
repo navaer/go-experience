@@ -31,4 +31,8 @@ Route::get('travel', function () {
     return view('travel.index');
 })->name('travel');
 
+Route::get('health', function () {
+    return view('health.index');
+})->name('health');
+
 require __DIR__.'/auth.php';

@@ -1,0 +1,244 @@
+:root{
+  --demo-bg:#ffffff;
+  --demo-surface:#f6f8fb;
+  --demo-ink:#274760;
+  --demo-muted:#5d6475;
+  --demo-primary:#4eb3ff;
+  --demo-primary-2:#32ADE6;
+  --demo-accent:#7dd3fc;
+  --demo-ring:0 0 0 4px rgba(30,160,255,.25);
+  --demo-radius:22px;
+  font-family: "Montserrat", sans-serif;
+}
+body{ margin: 0; scroll-behavior:smooth; }
+body.dark{
+  --demo-bg:#0b0f16;
+  --demo-surface:#111725;
+  --demo-ink:#e7ebf6;
+  --demo-muted:#8c93a8;
+}
+.services-subtitle {
+  text-align: center; margin: 5px 0; font-weight: 600; color: #274760;
+}
+
+/* ===== Primitivos ===== */
+.demo-container{max-width:1200px;margin:0 auto;padding:clamp(14px,3vw,28px)}
+.demo-eyebrow{letter-spacing:.1em;text-transform:uppercase;font-weight:700;font-size:12px;color:var(--demo-primary-2)}
+.demo-title{color:var(--demo-ink);font-size:clamp(28px,4.2vw,50px);line-height:1.05;margin:0 0 10px}
+.demo-sub{color:var(--demo-muted);font-size:clamp(14px,1.1vw,18px);margin:0}
+.demo-btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:12px 18px;font-weight:700;text-decoration:none;border:1px solid transparent;transition:.25s}
+.demo-btn--primary{background:linear-gradient(90deg,var(--demo-primary),var(--demo-primary-2));color:#062235}
+.demo-btn--primary:hover{transform:translateY(-1px);box-shadow:var(--demo-ring)}
+.demo-btn--ghost{border-color:rgba(93,100,117,.35);color:var(--demo-ink)}
+
+/* ===== HERO ===== */
+.demo-hero{position:relative;isolation:isolate;background:url(../images/health/hero-bg.jpg); background-size: 100%;}
+.demo-hero_wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:end}
+.demo-hero_visual{min-height:45vh;border-radius:28px;position:relative;overflow:hidden;background:var(--demo-surface);opacity: 0;}
+.demo-hero_visual::before{content:"";position:absolute;inset:0;background: radial-gradient(60% 70% at 70% 30%, rgba(78,179,255,.35), transparent 60%), radial-gradient(55% 70% at 25% 75%, rgba(125,211,252,.35), transparent 60%), var(--demo-surface)}
+.demo-hero_visual::after{content:"";position:absolute;inset:0;background:var(--hero-bg, url('https://picsum.photos/1400/900')) center/cover no-repeat;mix-blend-mode:multiply;opacity:.9}
+.demo-hero_ctas{display:none;gap:12px;flex-wrap:wrap;margin-top:14px}
+.demo-hero::before { content: ""; display: block; width: 100%; max-width: 100vw; position: absolute; left: 0; top: 0; height: 100%; background: linear-gradient(115deg, #32ADE6 23%, #27476000 67%); z-index: -1; }
+.demo-hero .demo-title{ color: white; }
+.demo-hero .demo-sub{ color: white; }
+
+/* Cinta "Why choose us" */
+.demo-ribbon {margin-top: -44px; position: relative; top: 120px; margin-right: auto !important; margin-left: unset; padding-left: 0; }
+.demo-ribbon_inner{display:flex;align-items:center;gap:4vw}
+.demo-pill { background: #32ADE6; color: white; font-weight: 800; border-radius: 0px 100px 100px 0px; padding: 65px 85px 65px 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, .08); font-size: 30px; min-width: 250px; }
+.demo-chips{display:flex;gap:4vw;flex-wrap:wrap}
+.demo-chip{width:150px;height:150px;border-radius:999px;background:#fff;border:1px solid rgba(93,100,117,.18);display:block;place-items:center;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.06); place-content: center;}
+.demo-chip strong { display: block; color: #32ADE6; font-size: 30px; }
+.demo-chip span{color:var(--demo-muted);font-size:12px}
+
+/* ===== TEAM ===== */
+.demo-team{background:transparent;padding-top:110px;position: relative;}
+.demo-team .demo-title { font-size: clamp(22px, 3.2vw, 36px); text-align: center; margin-bottom: 70px; color: #6D6D6D; }
+section.demo-team::after { content: ""; display: block; width: 98vw; height: 100px; background: #32ADE6; position: absolute; bottom: 120px; z-index: -1; }
+.demo-team_grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:16px}
+.demo-docard{background:transparent;text-align:center}
+.demo-docard_avatar{width:180px;aspect-ratio:1/1;border-radius:999px;margin:0 auto 10px; background-size: cover !important;}
+.demo-docard:nth-child(1) .demo-docard_avatar{background: url(../images/health/prof-1.png);}
+.demo-docard:nth-child(2) .demo-docard_avatar{background: url(../images/health/prof-2.png);}
+.demo-docard:nth-child(3) .demo-docard_avatar{background: url(../images/health/prof-3.png);}
+.demo-docard:nth-child(4) .demo-docard_avatar{background: url(../images/health/prof-4.png);}
+.demo-docard_name{margin:0;color:#6D6D6D;font-weight:800}
+.demo-docard_role{margin:2px 0 0;color:#CACACA;font-size:14px}
+
+/* ===== SERVICES ===== */
+.demo-services{background:var(--demo-bg); padding-top: 100px;}
+.demo-services .demo-eyebrow{text-align:center}
+.demo-services .demo-head{ text-align:center; margin:6px 0 14px }
+.demo-services_grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.demo-service { background: #fff; border: 1px solid rgba(93, 100, 117, .18); border-radius: 20px; padding: 16px; display: grid; gap: 0px; min-height: 120px; grid-template-columns: 30% 70%; align-items: center; transition: all 0.5s; transform: scale(1); }
+.demo-service:hover{background:linear-gradient(180deg, rgba(78,179,255,.10), rgba(78,179,255,.02)), #fff;border-color:transparent;box-shadow:0 10px 30px rgba(0,0,0,.06); transition: all 0.5s;transform: scale(1.05);}
+.demo-service .demo-ico{font-size:22px}
+.demo-service h3{margin:4px 0;color:var(--demo-ink)}
+.demo-service p{margin:0;color:var(--demo-muted);font-size:14px}
+
+/* ===== Modern Care ===== */
+.demo-modern { position: relative; isolation: isolate; padding: 100px 0; background-image: url(../images/health/testimonials-bg.png); background-size: cover; background-position: top center; background-attachment: fixed; }
+.demo-modern .demo-eyebrow { color: white; }
+.demo-container.demo-split { margin-right: auto; margin: unset; padding-left: 0; }
+.demo-modern::before{content:"";position:absolute;inset:0;background: radial-gradient(80% 60% at 10% 30%, rgba(78,179,255,.18), transparent 60%), radial-gradient(80% 60% at 90% 70%, rgba(125,211,252,.18), transparent 60%); z-index:-1}
+.demo-modern .demo-band{background:white;color:#062235;border-radius:26px;padding:26px;border:1px solid rgba(255,255,255,.08)}
+.demo-modern h3{font-size:clamp(22px,2.6vw,34px);margin:0 0 10px; color:#274760;}
+.demo-modern p{margin:0;color:#274760; font-size: 17px;}
+.demo-modern .demo-note{background:#fff;border-radius:18px;padding:16px;margin-top:14px;color:#0e1422}
+
+/* ===== What Sets Us Apart ===== */
+.demo-apart .demo-split{display:grid;grid-template-columns:1.05fr .95fr;gap:0px;align-items:stretch}
+.demo-apart_media{border-radius:0px;min-height:360px;background:url('../images/health/wsua-img.jpg') center/cover no-repeat}
+.demo-apart_card { background: #65C1EC; border-radius: 0px 20px 20px 0px; padding: 18px; position: relative; overflow: hidden; background-image: url('../images/health/wsua-bg.png'); background-size: 200px; background-position: right bottom; background-repeat: no-repeat; place-content: center; }
+.demo-apart_card::after{content:"";position:absolute;inset:-40% -30% auto auto;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle at center, rgba(125,211,252,.22), transparent 60%)}
+.demo-apart h3{margin:0 0 10px;color:white;font-size:clamp(20px,2.2vw,28px)}
+.demo-list{margin:0;padding-left:18px;color:white;display:grid;gap:6px}
+.demo-apart .demo-btn{margin-top:12px; background: white;}
+
+/* ===== Blog Posts ===== */
+.demo-blogposts .demo-eyebrow{text-align:center}
+.demo-blogposts h3.demo-section{font-size:clamp(22px,3vw,36px);text-align:center;margin:6px 0 12px; color: #274760;margin-bottom: 80px;}
+.demo-blog_grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.demo-card{background:#fff;border:1px solid rgba(93,100,117,.18);border-radius:20px;overflow:hidden}
+.demo-card_media{aspect-ratio:16/9; border-radius: 10px;}
+.demo-blog_grid .demo-card:nth-child(2) { position: relative; bottom: 50px; }
+.demo-blog_grid .demo-card { padding: 15px; border: none; box-shadow: 0px 0px 8px 2px #00000014; }
+.demo-blog_grid .demo-card:nth-child(1) .demo-card_media{background:url('../images/health/blog-1.png') center/cover no-repeat}
+.demo-blog_grid .demo-card:nth-child(2) .demo-card_media{background:url('../images/health/blog-2.png') center/cover no-repeat}
+.demo-blog_grid .demo-card:nth-child(3) .demo-card_media{background:url('../images/health/blog-3.png') center/cover no-repeat}
+.demo-card_body{padding:14px}
+.demo-card_body h4{margin:0 0 6px;color:var(--demo-ink)}
+.demo-meta{color:var(--demo-muted);font-size:12px}
+
+/* ===== Appointment ===== */
+.demo-appt{position:relative; background-image: url(../images/health/form-bg.png);background-color: #7c7c7c75;background-attachment:fixed ;}
+.demo-appt .demo-shell{border-radius:26px;padding:18px 18px 24px;display:grid;grid-template-columns:1.05fr .95fr;gap:14px;align-items:center}
+.demo-appt_circle{position:relative;min-height:320px;border-radius:20px;overflow:visible}
+.demo-appt_circle::before{content:"";position:absolute;left:0px;top:50%;transform:translateY(-50%);width:360px;height:360px;border-radius:999px;background:url('../images/health/form-img.png') center/cover no-repeat;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+.demo-form{background:transparent;border-radius:20px;padding:16px;border:none;}
+.demo-form h3{margin:0 0 10px;color:var(--demo-ink);font-size:clamp(22px,2.4vw,30px)}
+.demo-form p{margin:0 0 10px;color:var(--demo-muted)}
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.demo-field{display:grid;gap:6px}
+.demo-field label{font-size:13px;font-weight:700;color:var(--demo-ink)}
+.demo-input{padding:10px 12px;border:1px solid rgba(93,100,117,.35);border-radius:10px;background:#fff;color:#0e1422}
+body.dark .demo-input{background:#0e1117;color:#e7ebf6;border-color:rgba(140,147,168,.45)}
+.demo-form .demo-actions{margin-top:10px}
+
+/* <= 980px */
+@media (max-width:980px){
+  .demo-hero_wrap{
+    grid-template-columns: 1fr; width: 90%; margin: unset; max-width: 500px; position: relative; top: 20vw;
+  }
+  .demo-blog_grid .demo-card:nth-child(2){ position: unset; }
+  .demo-ribbon{margin-top:10px;}
+  .demo-services_grid{grid-template-columns:1fr 1fr;}
+  .demo-blog_grid{grid-template-columns:1fr 1fr;}
+      .demo-apart .demo-split {
+        grid-template-columns: 1fr;
+        padding: 0;
+        gap: 40px;
+    }
+}
+
+/* <= 820px */
+@media (max-width:820px){
+  .demo-hero_visual { display: none; }
+  .demo-ribbon_inner { align-items: flex-start; gap: 2vw; flex-direction: column; }
+  .demo-apart_card {
+    border-radius: 0px 20px 20px 0px;
+    width: 90%;
+    box-sizing: border-box;
+  }
+  .demo-services_grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overflow-y: hidden;
+  }
+  .demo-service {
+    display: block;
+    scroll-snap-align: start;
+    width: 90%;
+    align-items: center;
+    place-content: center;
+    text-align: center;
+    flex: 0 0 auto;
+  }
+}
+
+/* <= 560px */
+@media (max-width:560px){
+  .demo-team .demo-team_grid{grid-template-columns:1fr !important;}
+  .demo-blog_grid{grid-template-columns:1fr;}
+  section.demo-team::after { height: 100px; bottom: 150px; }
+  .demo-services_grid { grid-template-columns: 1fr; gap: 30px; max-width: 400px; width: 100%; }
+  .demo-grid{
+    grid-template-columns: 1fr;
+  }
+  .demo-ribbon {
+    top: 65dvh;
+  }
+  .demo-team {
+    padding-top: 70dvh;
+    background-image: url('../images/health/au-bg.png');
+    background-size: 100%;
+    background-position: top left;
+    background-repeat: no-repeat;
+    z-index: -1;
+    background-attachment: fixed;
+  }
+  .demo-hero_wrap {
+    top: 60vw;
+    text-align: center;
+  }
+  .demo-chips {
+    display: flex;
+    gap: 2vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;
+  }
+  .demo-docard {
+    width: 100%;
+  }
+  .demo-team .demo-title {
+    font-size: 30px;
+  }
+  .demo-apart_media {
+    border-radius: 20px 0px 0px 20px;
+    margin-left: auto;
+    width: 90%;
+  }
+  #demo-apart {
+    position: relative;
+    bottom: 30px;
+  }
+  .demo-docard_avatar {
+    width: 300px;
+  }
+}
+
+/* <= 1100px */
+@media (max-width:1100px){
+  .demo-hero { background-size: cover; background-position: 35%; background-repeat: no-repeat; }
+  .demo-hero_visual { min-height: 20vh; }
+  .demo-appt .demo-shell{grid-template-columns:1fr;}
+  .demo-appt_circle::before{position:relative;inset:auto;display:block;margin:0 auto 10px;transform:none;left:auto;top:auto;width: 100%;height: auto; aspect-ratio: 1;}
+}
+
+/* <= 1000px */
+@media (max-width:1000px){
+  .demo-team_grid {
+        display: flex;
+        width: 100%;
+        scroll-snap-type: x mandatory;
+        overflow-x: auto;
+    }
+    .demo-docard {
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+    }
+}
+
