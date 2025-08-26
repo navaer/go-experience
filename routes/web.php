@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HealthController;
 use App\Http\Controllers\ItineraryController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
@@ -31,8 +32,6 @@ Route::get('travel', function () {
     return view('travel.index');
 })->name('travel');
 
-Route::get('health', function () {
-    return view('health.index');
-})->name('health');
+Route::resource('health', HealthController::class);
 
 require __DIR__.'/auth.php';
