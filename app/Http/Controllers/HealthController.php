@@ -43,12 +43,14 @@ class HealthController extends Controller
 
         $gocontactContacts = $searchContact->object();
 
+        $appointment = $this->newAppointment($request);
+
         if (count($gocontactContacts) > 0) {
             $contactPatchResponse = Http::withToken($token)->patch($url . 'poll/api/databases/' . $db_id . '/contacts/' . $gocontactContacts[0]->id, [
                 'contact' => $request->contact,
                 'first_phone' => $request->phone,
                 'fields' => [
-                    'field1' => '234', //appointment_id
+                    'field1' => $appointment->id, //appointment_id
                     'field2' => $request->date . ' ' . $request->time, //appointment_date
                 ],
                 'outcome_id' => 0,
@@ -65,7 +67,7 @@ class HealthController extends Controller
                 'outcome_id' => 0,
                 'direct_to_hopper' => true,
                 'fields' => [
-                    'field1' => '234', //appointment_id
+                    'field1' => $appointment->id, //appointment_id
                     'field2' => $request->date . ' ' . $request->time, //appointment_date
                 ]
             ]);
@@ -115,7 +117,7 @@ class HealthController extends Controller
         //
     }
 
-        public function getToken()
+    public function getToken()
     {
         $url = env('GOCONTACT_URL');
         $username = env('GOCONTACT_USERNAME');
@@ -125,5 +127,18 @@ class HealthController extends Controller
 
         $token = $response->object();
         return $token->token;
+    }
+
+    public function newAppointment(Request $request)
+    {
+
+        $token = env('GOTRAVEL_TOKEN');
+        $url = env('GOTRAVEL_URL');
+
+        $response = Http::withToken($token)->post($url . 'patients', $request->all());
+
+        $appointmentResponse = $response->object();
+
+        return $appointmentResponse->response->data->appointment;
     }
 }
