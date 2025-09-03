@@ -175,6 +175,56 @@ body.dark .demo-input{background:#0e1117;color:#e7ebf6;border-color:rgba(140,147
 }
 
 
+/* ===== Confirmation Cards ===== */
+
+.demo-hero--confirm .demo-hero_ctas a {
+    color: white;
+    border-color: white;
+    background: #ffffff14;
+}
+
+.demo-hero--confirm .demo-hero_ctas{
+  display: block;
+}
+
+:root{ --demo-radius:22px; --demo-surface:#f6f8fb; }
+
+.demo-confirm{ padding: clamp(28px,6vw,72px) 0; }
+
+.demo-confirm_cards{
+  display:grid; gap: clamp(16px,3vw,24px);
+  grid-template-columns: 1.1fr .9fr;
+}
+@media (max-width: 900px){
+  .demo-confirm_cards{ grid-template-columns:1fr; }
+}
+
+.demo-card{
+  background:#fff; border-radius:var(--demo-radius);
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  padding: clamp(18px,3vw,28px);
+}
+
+.demo-kv{
+  display:flex; align-items:flex-start; gap:12px;
+  padding:12px 0; border-top:1px solid rgba(0,0,0,.06);
+}
+.demo-kv:first-of-type{ border-top:none; padding-top:4px; }
+
+.demo-ico{
+  flex:0 0 36px; width:36px; height:36px; border-radius:999px;
+  display:grid; place-items:center;
+  background: linear-gradient(180deg, rgba(78,179,255,.12), rgba(50,173,230,.12));
+  color:#274760;
+}
+.demo-ico svg{ width:18px; height:18px; }
+
+.demo-kv_text small{ display:block; color:#5d6475; letter-spacing:.02em; }
+.demo-kv_text strong{ font-size:1.05rem; }
+
+
+
+
 /* <= 980px */
 @media (max-width:980px){
   .demo-hero_wrap{
