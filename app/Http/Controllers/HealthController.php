@@ -83,7 +83,7 @@ class HealthController extends Controller
             flash(__('Whoops! Something went wrong.'))->error();
         }
 
-        return redirect('health');
+        return redirect('health/confirmation/' . $appointment->id);
     }
 
     /**
