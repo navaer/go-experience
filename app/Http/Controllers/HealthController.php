@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\HealthRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -90,7 +91,14 @@ class HealthController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $token = env('GOTRAVEL_TOKEN');
+        $url = env('GOTRAVEL_URL');
+
+        $response = Http::withToken($token)->get($url . 'appointments/' . $id);
+
+        $appointment = $response->object();
+
+        return view('health.confirmation', compact('appointment'));
     }
 
     /**

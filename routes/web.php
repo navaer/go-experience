@@ -32,6 +32,7 @@ Route::get('travel', function () {
     return view('travel.index');
 })->name('travel');
 
+Route::get('health/confirmation/{id}', [HealthController::class, 'show']);
 Route::resource('health', HealthController::class);
 
 require __DIR__.'/auth.php';
