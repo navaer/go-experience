@@ -217,6 +217,10 @@
                     {{ html()->text('phone')->id('phone')->class('demo-input')->required() }}
                 </div>
                 <div class="demo-field">
+                    {{ html()->label(__('Medical Specialty') . ' *')->for('medical_specialty') }}
+                    {{ html()->text('medical_specialty')->id('medical_specialty')->class('demo-input')->required() }}
+                </div>
+                <div class="demo-field">
                     {{ html()->label(__('Reason for visit') . ' *')->for('visit_reason') }}
                     {{ html()->text('visit_reason')->id('visit_reason')->class('demo-input')->required() }}
                 </div>

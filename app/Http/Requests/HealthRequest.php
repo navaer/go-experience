@@ -27,6 +27,7 @@ class HealthRequest extends FormRequest
             'medical_record' => 'required|string|max:255',
             'phone' => 'required|max:15',
             'visit_reason' => 'required|string|max:500',
+            'medical_specialty' => 'required|string|max:500',
             'location' => 'required|string|max:255',
             'date' => 'required|date',
             'time' => 'required|date_format:H:i',

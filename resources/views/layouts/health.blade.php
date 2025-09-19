@@ -165,7 +165,7 @@
 <body>
     <header class="demo-header">
         <div class="demo-container">
-            <a href="#" class="demo-logo" aria-label="GoHealth Logo">
+            <a href="{{ url('health') }}" class="demo-logo" aria-label="GoHealth Logo">
                 <img src="{{ asset('images/health/gh-logo.png') }}" alt="GoHealth Logo">
             </a>
             <nav class="demo-nav" id="demo-nav">
