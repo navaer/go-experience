@@ -196,5 +196,5 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src={{ asset('js/toastr.min.js') }}></script>
     @include('flash::message')
-    @yield('custom-scripts');
+    @yield('custom-scripts')
 </body>
