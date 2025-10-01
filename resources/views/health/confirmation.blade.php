@@ -199,8 +199,11 @@
                 apptoken: 'f3899880-87eb-11ef-abb9-2bbf72490c1f',
                 tab: '68b605b481cd84e3161491ca',
                 customVariables: {
-                    appointmentId: "{{ $appointment->id }}",
-                    patientName: "{{ $appointment->patient->first_name }} {{ $appointment->patient->last_name }}",
+                    appointmentId: '{{ $appointment->id }}',
+                    patientName: '{{ $appointment->patient->first_name }} {{ $appointment->patient->last_name }}',
+                    appointmentDate: '{{ $appointment->appointment_date }}',
+                    doctorName: '{{ $appointment->doctor_name }}',
+                    specialty: '{{ $appointment->medical_specialty }}'
                 }
             });
         }
