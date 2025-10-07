@@ -218,7 +218,7 @@
                 </div>
                 <div class="demo-field">
                     {{ html()->label(__('Medical Specialty') . ' *')->for('medical_specialty') }}
-                    {{ html()->text('medical_specialty')->id('medical_specialty')->class('demo-input')->required() }}
+                    {{ html()->select('medical_specialty', $specialties, null)->placeholder('Select an option')->id('medical_specialty')->class('demo-input')->required() }}
                 </div>
                 <div class="demo-field">
                     {{ html()->label(__('Reason for visit') . ' *')->for('visit_reason') }}
@@ -226,7 +226,7 @@
                 </div>
                 <div class="demo-field">
                     {{ html()->label(__('Location') . ' *')->for('location') }}
-                    {{ html()->text('location')->id('location')->class('demo-input')->required() }}
+                    {{ html()->select('location', $locations, null)->placeholder('Select an option')->id('location')->class('demo-input')->required() }}
                 </div>
                 <div class="demo-field">
                     {{ html()->label(__('Preferred Date') . ' *')->for('date') }}

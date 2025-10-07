@@ -15,7 +15,22 @@ class HealthController extends Controller
      */
     public function index()
     {
-        return view('health.index');
+
+        $locations = [
+            'Miami' => 'Miami',
+            'Houston' => 'Houston',
+            'San Diego' => 'San Diego',
+            'New York' => 'New York',
+        ];
+
+        $specialties = [
+            'General Medicine' => 'General Medicine',
+            'Pediatrics' => 'Pediatrics',
+            'Orthopedics' => 'Orthopedics',
+            'Psychiatry' => 'Psychiatry',
+        ];
+
+        return view('health.index', compact('locations', 'specialties'));
     }
 
     /**
