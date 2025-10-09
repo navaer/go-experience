@@ -196,7 +196,7 @@
     <section id="demo-appt" class="demo-appt" aria-labelledby="demo-appt-title">
         <div class="demo-container demo-shell">
             <div data-aos="fade-up" class="demo-appt_circle" aria-hidden="true"></div>
-            {{ html()->form('POST', 'health')->class('demo-form')->open() }}
+            {{ html()->form('POST', url('health'))->class('demo-form')->open() }}
             <h3 data-aos="fade-up" id="demo-appt-title">Request Your Appointment</h3>
             <p data-aos="fade-up">We’ll contact you to confirm the date and time.</p>
             <div class="demo-grid">
@@ -235,6 +235,10 @@
                 <div class="demo-field">
                     {{ html()->label(__('Preferred Time') . ' *')->for('time') }}
                     {{ html()->time('time')->id('time')->class('demo-input')->required() }}
+                </div>
+                <div class="demo-field">
+                    {{ html()->label(__('Front Desk Agent') . ' *')->for('agent') }}
+                    {{ html()->select('agent', $frontAgents, null)->placeholder('Select an option')->id('agent')->class('demo-input')->required() }}
                 </div>
             </div>
             <div class="demo-actions"><button class="demo-btn demo-btn--primary" type="submit">Submit</button></div>

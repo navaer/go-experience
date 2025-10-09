@@ -31,6 +31,7 @@ class HealthRequest extends FormRequest
             'location' => 'required|string|max:255',
             'date' => 'required|date',
             'time' => 'required|date_format:H:i',
+            'agent' => 'required'
 
         ];
     }

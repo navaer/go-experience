@@ -30,7 +30,16 @@ class HealthController extends Controller
             'Psychiatry' => 'Psychiatry',
         ];
 
-        return view('health.index', compact('locations', 'specialties'));
+        $frontAgents = [
+            '432' => "Daniel Long",
+            '431' => "Annie McNutt",
+            '435' => 'Alejandro Aguilera',
+            '434' => "Juan Cardona",
+            '433' => "Virgilio Muelas",
+            '430' => "Erick Nava",
+        ];
+
+        return view('health.index', compact('locations', 'specialties', 'frontAgents'));
     }
 
     /**
@@ -46,15 +55,17 @@ class HealthController extends Controller
      */
     public function store(HealthRequest $request)
     {
-        $db_id = 420;
+
+        $db_id = $request->agent;
         $campaign_id = 131;
+
+        //return $db_id;
 
         $url = env('GOCONTACT_URL');
         $token = $this->getToken();
 
-        $searchContact = Http::withToken($token)->get($url . 'poll/api/contacts/phone', [
-            'nums' => $request->phone,
-            'campaigns' => $campaign_id,
+        $searchContact = Http::withToken($token)->get($url . 'poll/api/databases/' . $db_id . '/contacts', [
+            'phone_number' => $request->phone,
         ]);
 
         $gocontactContacts = $searchContact->object();
