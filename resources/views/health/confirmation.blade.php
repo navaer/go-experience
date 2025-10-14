@@ -20,8 +20,8 @@
                     Your appointment was scheduled successfully.
                     <br />
                     <!--<span style="background:linear-gradient(90deg,var(--demo-primary),var(--demo-primary-2));-webkit-background-clip:text;background-clip:text;color:white">
-              Thank you!
-            </span>-->
+                      Thank you!
+                    </span>-->
                 </h1>
 
                 <p class="demo-sub" style="max-width:62ch">
@@ -62,14 +62,14 @@
                     </div>
 
                     <!--<div class="demo-kv">
-              <div class="demo-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M7 3v6a4 4 0 1 0 8 0V3M3 5v2a6 6 0 0 0 12 0V5M19 10v5a3 3 0 1 1-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="demo-kv_text">
-                <small>Specialty</small>
-                <strong>Family Medicine</strong>
-              </div>
-            </div>-->
+                      <div class="demo-ico" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M7 3v6a4 4 0 1 0 8 0V3M3 5v2a6 6 0 0 0 12 0V5M19 10v5a3 3 0 1 1-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </div>
+                      <div class="demo-kv_text">
+                        <small>Specialty</small>
+                        <strong>Family Medicine</strong>
+                      </div>
+                    </div>-->
 
                     <div class="demo-kv">
                         <div class="demo-ico" aria-hidden="true">
@@ -143,14 +143,14 @@
                     </div>
 
                     <!--<div class="demo-kv">
-              <div class="demo-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4zM4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="demo-kv_text">
-                <small>Email</small>
-                <strong>alex.johnson@example.com</strong>
-              </div>
-            </div>-->
+                      <div class="demo-ico" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4zM4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </div>
+                      <div class="demo-kv_text">
+                        <small>Email</small>
+                        <strong>alex.johnson@example.com</strong>
+                      </div>
+                    </div>-->
 
                     <div class="demo-kv">
                         <div class="demo-ico" aria-hidden="true">
@@ -195,17 +195,24 @@
     </div>
     <script>
         if (typeof Visor !== 'undefined' && Visor) {
-            Visor.init({
-                apptoken: 'f3899880-87eb-11ef-abb9-2bbf72490c1f',
-                tab: '68b605b481cd84e3161491ca',
-                customVariables: {
-                    appointmentId: '{{ $appointment->id }}',
-                    patientName: '{{ $appointment->patient->first_name }} {{ $appointment->patient->last_name }}',
-                    appointmentDate: '{{ $appointment->appointment_date }}',
-                    doctorName: '{{ $appointment->doctor_name }}',
-                    specialty: '{{ $appointment->medical_specialty }}'
-                }
-            });
+
+            Visor.destroy();
+            
+
+            setTimeout(() => {
+                Visor.init({
+                    apptoken: 'f3899880-87eb-11ef-abb9-2bbf72490c1f',
+                    environment: '{{ env('VISOR_ENVIRONMENT', 'production') }}',
+                    tab: '68b605b481cd84e3161491ca',
+                    customVariables: {
+                        appointmentId: '{{ $appointment->id }}',
+                        patientName: '{{ $appointment->patient->first_name }} {{ $appointment->patient->last_name }}',
+                        appointmentDate: '{{ $appointment->appointment_date }}',
+                        doctorName: '{{ $appointment->doctor_name }}',
+                        specialty: '{{ $appointment->medical_specialty }}'
+                    }
+                });
+            }, 100);
         }
     </script>
     <script src='https://chatwidget-flows2-0.visor.ai/socket.io/socket.io.js'></script>
