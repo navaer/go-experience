@@ -202,7 +202,7 @@
             setTimeout(() => {
                 Visor.init({
                     apptoken: 'f3899880-87eb-11ef-abb9-2bbf72490c1f',
-                    environment: '{{ env("VISOR_ENVIRONMENT", "production") }}',
+                    environment: '{{ env("VISOR_ENVIRONMENT", "") }}',
                     tab: '68b605b481cd84e3161491ca',
                     customVariables: {
                         appointmentId: '{{ $appointment->id }}',
