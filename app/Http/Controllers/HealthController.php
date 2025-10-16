@@ -30,14 +30,7 @@ class HealthController extends Controller
             'Psychiatry' => 'Psychiatry',
         ];
 
-        $frontAgents = [
-            '432' => "Daniel Long",
-            '431' => "Annie McNutt",
-            '435' => 'Alejandro Aguilera',
-            '434' => "Juan Cardona",
-            '433' => "Virgilio Muelas",
-            '430' => "Erick Nava",
-        ];
+        $frontAgents = $this->getDemoUsers();
 
         return view('health.index', compact('locations', 'specialties', 'frontAgents'));
     }
@@ -174,5 +167,17 @@ class HealthController extends Controller
         $appointmentResponse = $response->object();
 
         return $appointmentResponse->response->data->appointment;
+    }
+
+    public function getDemoUsers()
+    {
+        $token = env('GOTRAVEL_TOKEN');
+        $url = env('GOTRAVEL_URL');
+
+        $response = Http::withToken($token)->post($url . 'go_demo_users/search', [
+            'campaign_id' => "GoHealth",
+        ]);
+
+        return $response->object();
     }
 }
