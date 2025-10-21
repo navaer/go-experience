@@ -69,6 +69,42 @@
             color: #274760;
         }
 
+        /*language-switcher*/
+        .lang-switcher-static {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .lang-switcher-static .lang-btn {
+            width: 44px;
+            height: 44px;
+            display: inline-grid;
+            place-items: center;
+            border: 1px solid rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.95);
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 6px;
+            text-decoration: none;
+            background: transparent;
+            transition: background 0.12s, color 0.12s, border-color 0.12s;
+        }
+
+        .lang-switcher-static .lang-btn:hover,
+        .lang-switcher-static .lang-btn:focus {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.45);
+            color: #fff;
+        }
+
+        /*-------*/
+        .lang-switcher-static .lang-btn.active {
+            background: #ffffff;
+            color: #2b3a40;
+            border-color: rgba(0,0,0,0.06);
+        }
+
         .demo-nav-toggle {
             display: none;
             flex-direction: column;
@@ -94,6 +130,10 @@
         @media (max-width: 900px) {
             .demo-nav ul {
                 gap: 1rem;
+            }
+            .lang-switcher-static .lang-btn {
+                width: 35px;
+                height: 35px;
             }
         }
 
@@ -178,7 +218,15 @@
                     <li><a href="#demo-blogposts">Blog</a></li>
                     <li><a href="#demo-appt">Contact Us</a></li>
                 </ul>
+                
             </nav>
+            {{--language switcher--}}
+            <div class="lang-switcher-static" aria-hidden="false">
+                <a href="#" class="lang-btn" title="Português (PT)">PT</a>
+                <a href="#" class="lang-btn active" title="English (EN)">EN</a>
+                <a href="#" class="lang-btn" title="Español (ES)">ES</a>
+            </div>
+
             <button class="demo-nav-toggle" id="demo-nav-toggle" aria-label="Open menu" aria-expanded="false">
                 <span></span>
                 <span></span>
