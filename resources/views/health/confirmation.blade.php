@@ -13,11 +13,11 @@
                         <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
-                    Appointment Confirmed
+                    {{ __('Appointment Confirmed') }}
                 </div>
 
                 <h1 class="demo-title" id="confirm-title" style="margin-top:.6rem">
-                    Your appointment was scheduled successfully.
+                    {{ __('Your appointment was scheduled successfully.') }}
                     <br />
                     <!--<span style="background:linear-gradient(90deg,var(--demo-primary),var(--demo-primary-2));-webkit-background-clip:text;background-clip:text;color:white">
                       Thank you!
@@ -25,13 +25,12 @@
                 </h1>
 
                 <p class="demo-sub" style="max-width:62ch">
-                    We’ve received your request and sent a confirmation<br>If you need to make changes, please contact our
-                    team.
+                    {{ __('We’ve received your request and sent a confirmation') }}<br>{{ __('If you need to make changes, please contact our team') }}.
                 </p>
 
 
                 <div class="demo-hero_ctas">
-                    <a class="demo-btn demo-btn--ghost" href="#gh-summary">See summary</a>
+                    <a class="demo-btn demo-btn--ghost" href="#gh-summary">{{ __('See summary') }}</a>
                 </div>
             </div>
 
@@ -45,7 +44,7 @@
 
                 <!-- Card 1: Appointment Summary -->
                 <article class="demo-card" aria-labelledby="appt-summary-title">
-                    <h2 class="demo-title" id="appt-summary-title" style="margin-top:0">Appointment Summary</h2>
+                    <h2 class="demo-title" id="appt-summary-title" style="margin-top:0">{{ __('Appointment Summary') }}</h2>
 
                     <div class="demo-kv">
                         <div class="demo-ico" aria-hidden="true">
@@ -56,7 +55,7 @@
                             </svg>
                         </div>
                         <div class="demo-kv_text">
-                            <small>Date & time</small>
+                            <small>{{ __('Date & time') }}</small>
                             <strong>{{ $appointment->appointment_date }}</strong>
                         </div>
                     </div>
@@ -79,7 +78,7 @@
                             </svg>
                         </div>
                         <div class="demo-kv_text">
-                            <small>Confirmation #</small>
+                            <small>{{ __('Confirmation') }} #</small>
                             <strong>{{ $appointment->id }}</strong>
                         </div>
                     </div>
@@ -92,8 +91,8 @@
                             </svg>
                         </div>
                         <div class="demo-kv_text">
-                            <small>Specialty</small>
-                            <strong>{{ $appointment->medical_specialty }}</strong>
+                            <small>{{ __('Specialty') }}</small>
+                            <strong>{{ __($appointment->medical_specialty) }}</strong>
                         </div>
                     </div>
 
@@ -105,7 +104,7 @@
                             </svg>
                         </div>
                         <div class="demo-kv_text">
-                            <small>Provider</small>
+                            <small>{{ __('Provider') }}</small>
                             <strong>{{ $appointment->doctor_name }}</strong>
                         </div>
                     </div>
@@ -119,7 +118,7 @@
                             </svg>
                         </div>
                         <div class="demo-kv_text">
-                            <small>Location</small>
+                            <small>{{ __('Location') }}</small>
                             <strong>{{ $appointment->patient->address }}</strong>
                         </div>
                     </div>
@@ -127,7 +126,7 @@
 
                 <!-- Card 2: Details you provided -->
                 <article class="demo-card" aria-labelledby="appt-details-title">
-                    <h3 id="appt-details-title" style="margin:0 0 6px">Details you provided</h3>
+                    <h3 id="appt-details-title" style="margin:0 0 6px">{{ __('Details you provided') }}</h3>
 
                     <div class="demo-kv">
                         <div class="demo-ico" aria-hidden="true">
@@ -137,7 +136,7 @@
                             </svg>
                         </div>
                         <div class="demo-kv_text">
-                            <small>Full name</small>
+                            <small>{{ __('Full name') }}</small>
                             <strong>{{ $appointment->patient->first_name }} {{ $appointment->patient->last_name }}</strong>
                         </div>
                     </div>
@@ -161,7 +160,7 @@
                             </svg>
                         </div>
                         <div class="demo-kv_text">
-                            <small>Phone</small>
+                            <small>{{ __('Phone') }}</small>
                             <strong>{{ $appointment->patient->phone }}</strong>
                         </div>
                     </div>
@@ -174,13 +173,13 @@
                             </svg>
                         </div>
                         <div class="demo-kv_text">
-                            <small>Notes</small>
+                            <small>{{ __('Notes') }}</small>
                             <strong>{{ $appointment->notes }}</strong>
                         </div>
                     </div>
 
                     <p class="demo-meta" style="margin:10px 0 0;color:#5d6475">
-                        A copy of this confirmation was sent to your email.
+                        {{ __('A copy of this confirmation was sent to your email') }}.
                     </p>
                 </article>
 

@@ -81,8 +81,8 @@
             height: 44px;
             display: inline-grid;
             place-items: center;
-            border: 1px solid rgba(255,255,255,0.25);
-            color: rgba(255,255,255,0.95);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.95);
             font-weight: 700;
             font-family: 'Montserrat', sans-serif;
             border-radius: 6px;
@@ -93,8 +93,8 @@
 
         .lang-switcher-static .lang-btn:hover,
         .lang-switcher-static .lang-btn:focus {
-            background: rgba(255,255,255,0.06);
-            border-color: rgba(255,255,255,0.45);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.45);
             color: #fff;
         }
 
@@ -102,7 +102,7 @@
         .lang-switcher-static .lang-btn.active {
             background: #ffffff;
             color: #2b3a40;
-            border-color: rgba(0,0,0,0.06);
+            border-color: rgba(0, 0, 0, 0.06);
         }
 
         .demo-nav-toggle {
@@ -131,6 +131,7 @@
             .demo-nav ul {
                 gap: 1rem;
             }
+
             .lang-switcher-static .lang-btn {
                 width: 35px;
                 height: 35px;
@@ -210,21 +211,32 @@
             </a>
             <nav class="demo-nav" id="demo-nav">
                 <ul>
-                    <li><a href="#demo-hero">Home</a></li>
-                    <li><a href="#demo-team">Team</a></li>
-                    <li><a href="#demo-services">Services</a></li>
-                    <li><a href="#demo-modern">Why Choose Us</a></li>
-                    <li><a href="#demo-apart">What Sets Us Apart</a></li>
-                    <li><a href="#demo-blogposts">Blog</a></li>
-                    <li><a href="#demo-appt">Contact Us</a></li>
+                    <li><a href="#demo-hero">{{ __('Home') }}</a></li>
+                    <li><a href="#demo-team">{{ __('Team') }}</a></li>
+                    <li><a href="#demo-services">{{ __('Services') }}</a></li>
+                    <li><a href="#demo-modern">{{ __('Why Choose Us') }}</a></li>
+                    <li><a href="#demo-apart">{{ __('What Sets Us Apart') }}</a></li>
+                    <li><a href="#demo-blogposts">{{ __('Blog') }}</a></li>
+                    <li><a href="#demo-appt">{{ __('Contact Us') }}</a></li>
                 </ul>
-                
+
             </nav>
-            {{--language switcher--}}
+            {{-- language switcher --}}
             <div class="lang-switcher-static" aria-hidden="false">
-                <a href="#" class="lang-btn" title="Português (PT)">PT</a>
-                <a href="#" class="lang-btn active" title="English (EN)">EN</a>
-                <a href="#" class="lang-btn" title="Español (ES)">ES</a>
+                <a href="{{ request()->fullUrlWithQuery(['lang' => 'pt']) }}"
+                    class="lang-btn {{ app()->getLocale() === 'pt' ? 'active' : '' }}" title="Português (PT)">
+                    PT
+                </a>
+
+                <a href="{{ request()->fullUrlWithQuery(['lang' => 'en']) }}"
+                    class="lang-btn {{ app()->getLocale() === 'en' ? 'active' : '' }}" title="English (EN)">
+                    EN
+                </a>
+
+                <a href="{{ request()->fullUrlWithQuery(['lang' => 'es']) }}"
+                    class="lang-btn {{ app()->getLocale() === 'es' ? 'active' : '' }}" title="Español (ES)">
+                    ES
+                </a>
             </div>
 
             <button class="demo-nav-toggle" id="demo-nav-toggle" aria-label="Open menu" aria-expanded="false">

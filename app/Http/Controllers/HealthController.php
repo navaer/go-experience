@@ -24,10 +24,10 @@ class HealthController extends Controller
         ];
 
         $specialties = [
-            'General Medicine' => 'General Medicine',
-            'Pediatrics' => 'Pediatrics',
-            'Orthopedics' => 'Orthopedics',
-            'Psychiatry' => 'Psychiatry',
+            'General Medicine' => __('General Medicine'),
+            'Pediatrics' => __('Pediatrics'),
+            'Orthopedics' => __('Orthopedics'),
+            'Psychiatry' => __('Psychiatry'),
         ];
 
         $frontAgents = $this->getDemoUsers();
@@ -174,8 +174,19 @@ class HealthController extends Controller
         $token = env('GOTRAVEL_TOKEN');
         $url = env('GOTRAVEL_URL');
 
+        $locale = app()->getLocale();
+
+        // Asignar campaign_id dinámico según el idioma
+        $campaign_id = match ($locale) {
+            'es' => 'GoHealth ES',
+            'en' => 'GoHealth EN',
+            'pt' => 'GoHealth PT',
+            default => 'GoHealth', // fallback si llega otro idioma
+        };
+
+
         $response = Http::withToken($token)->post($url . 'go_demo_users/search', [
-            'campaign_id' => "GoHealth",
+            'campaign_id' => $campaign_id,
         ]);
 
         return $response->object();
