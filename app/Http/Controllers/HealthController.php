@@ -117,7 +117,16 @@ class HealthController extends Controller
 
         $appointment = $response->object();
 
-        return view('health.confirmation', compact('appointment'));
+        $locale = app()->getLocale();
+
+        $visorTab = match ($locale) {
+            'es' => '68ef9eaf5490532ae64b7724',
+            'en' => '68b605b481cd84e3161491ca',
+            'pt' => '68f154217957a810cf8c3b2a',
+            default => '68b605b481cd84e3161491ca', // fallback si llega otro idioma
+        };
+
+        return view('health.confirmation', compact('appointment', 'visorTab'));
     }
 
     /**
