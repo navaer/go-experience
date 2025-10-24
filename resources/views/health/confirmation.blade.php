@@ -199,7 +199,7 @@
 
             setTimeout(() => {
                 Visor.init({
-                    apptoken: 'f3899880-87eb-11ef-abb9-2bbf72490c1f',
+                    apptoken: '{{ env("VISOR_TOKEN", "") }}',
                     environment: '{{ env("VISOR_ENVIRONMENT", "") }}',
                     tab: '{{ $visorTab }}',
                     customVariables: {
