@@ -7,9 +7,11 @@
 
     <title>GoContact</title>
 
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -1827,10 +1829,18 @@
             initial-value: 100%
         }
     </style>
+    <style>
+        /* Hover más visible para los botones */
+        a.hover-gray:hover {
+            background-color: color-mix(in oklab, var(--color-zinc-800)10%, transparent);
+            color: var(--color-zinc-800);
+            border-color: color-mix(in oklab, var(--color-zinc-800)25%, transparent);
+            transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+        }
+    </style>
 </head>
 
-<body
-    class="bg-[#FDFDFC] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+<body class="bg-[#FDFDFC] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
     <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
     </header>
     <div
@@ -1838,13 +1848,16 @@
         <main class="flex flex-col items-center justify-center lg:max-w-4xl text-center">
             <img src="{{ asset('images/gocontact/gocontact.png') }}" alt="GoContact" class="mb-12 max-w-[250px]">
             <div class="flex flex-row flex-wrap gap-4 mt-6 justify-center">
-                <a href="{{ url('travel') }}" class="px-8 py-2 text-sm font-semibold rounded-md border border-[#19140035] text-[#19140035] hover:bg-black hover:text-white transition-all duration-300 ease-in-out">
+                <a href="{{ url('travel') }}"
+                    class="px-8 py-2 text-sm font-semibold rounded-md border border-[#19140035] text-[#1b1b18] hover-gray">
                     GoTravel
                 </a>
-                <a href="{{ url('health') }}" class="px-8 py-2 text-sm font-semibold rounded-md border border-[#19140035] text-[#19140035] hover:bg-black hover:text-white transition-all duration-300 ease-in-out">
+                <a href="{{ url('health') }}"
+                    class="px-8 py-2 text-sm font-semibold rounded-md border border-[#19140035] text-[#1b1b18] hover-gray">
                     GoHealth
                 </a>
-                <a href="{{ url('financial') }}" class="px-8 py-2 text-sm font-semibold rounded-md border border-[#19140035] text-[#19140035] hover:bg-black hover:text-white transition-all duration-300 ease-in-out">
+                <a href="{{ url('financial') }}"
+                    class="px-8 py-2 text-sm font-semibold rounded-md border border-[#19140035] text-[#1b1b18] hover-gray">
                     GoFinancial
                 </a>
             </div>
