@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoFinancial - Modern Finance Landing Page</title>
+    <title>GoFinancial - {{ __('Modern Finance Landing Page') }}</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,27 +48,27 @@
                 <p style="opacity:.85">Copyright © 2025 GoFinancial. All rights reserved.</p>
             </div>
             <div class="demo-foot">
-                <h4>About Us</h4>
+                <h4>{{ __('About Us') }}</h4>
                 <ul>
-                    <li><a href="#">Departments</a></li>
-                    <li><a href="#">Doctors</a></li>
-                    <li><a href="#">Timetable</a></li>
-                    <li><a href="#">Appointment</a></li>
-                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">{{ __('Departments') }}</a></li>
+                    <li><a href="#">{{ __('Doctors') }}</a></li>
+                    <li><a href="#">{{ __('Timetable') }}</a></li>
+                    <li><a href="#">{{ __('Appointment') }}</a></li>
+                    <li><a href="#">{{ __('Testimonials') }}</a></li>
                 </ul>
             </div>
             <div class="demo-foot">
-                <h4>Resources</h4>
+                <h4>{{ __('Resources') }}</h4>
                 <ul>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Security</a></li>
-                    <li><a href="#">Guides</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">Status</a></li>
+                    <li><a href="#">{{ __('Pricing') }}</a></li>
+                    <li><a href="#">{{ __('Security') }}</a></li>
+                    <li><a href="#">{{ __('Guides') }}</a></li>
+                    <li><a href="#">{{ __('Support') }}</a></li>
+                    <li><a href="#">{{ __('Status') }}</a></li>
                 </ul>
             </div>
             <div class="demo-foot">
-                <h4>Follow Us</h4>
+                <h4>{{ __('Follow Us') }}</h4>
                 <div class="demo-social">
                     <div class="demo-soc">f</div>
                     <div class="demo-soc">yt</div>
