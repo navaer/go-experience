@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FinancialController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HealthController;
 use App\Http\Controllers\ItineraryController;
@@ -34,5 +35,7 @@ Route::get('travel', function () {
 
 Route::get('health/confirmation/{id}', [HealthController::class, 'show']);
 Route::resource('health', HealthController::class);
+
+Route::resource('financial', FinancialController::class);
 
 require __DIR__.'/auth.php';

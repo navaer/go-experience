@@ -258,3 +258,5 @@
     @include('flash::message')
     @yield('custom-scripts')
 </body>
+
+</html>
