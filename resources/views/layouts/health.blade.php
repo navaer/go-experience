@@ -17,6 +17,25 @@
                 once: true
             });
         });
+        /* ES lang selector script */
+        document.addEventListener('DOMContentLoaded', function() {
+              const esBtn = document.getElementById('lang-es-btn');
+              const submenu = document.querySelector('.lang-submenu');
+            
+              if (esBtn && submenu) {
+                esBtn.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  submenu.classList.toggle('open');
+                });
+            
+                document.addEventListener('click', function(e) {
+                  if (!esBtn.contains(e.target) && !submenu.contains(e.target)) {
+                    submenu.classList.remove('open');
+                  }
+                });
+              }
+            });
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
@@ -25,6 +44,55 @@
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
 
     <style>
+
+        /* ES lang selector Styles */
+        .lang-switcher-static {
+                    position: relative;
+                }
+
+                .lang-submenu li a img {
+                    display: block;
+                    width: 30px;
+                    margin: 0 auto;
+                }
+
+                .lang-submenu {
+                    position: absolute;
+                    top: 50px;
+                    right: 0px;
+                    background: white;
+                    border-radius: 8px;
+                    list-style: none;
+                    padding: 0.4rem;
+                    margin: 0;
+                    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateY(5px);
+                    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+                    z-index: 999;
+                    display: flex;
+                    gap:10px;
+                }
+                .lang-submenu li a:hover {
+                  background: rgba(0, 0, 0, 0.05);
+                }
+                
+                .lang-submenu.open {
+                  opacity: 1;
+                  visibility: visible;
+                  transform: translateY(0);
+                }
+                
+                /* responsive */
+                @media (max-width: 900px) {
+                  .lang-submenu {
+                    top: 42px;
+                    right: 0;
+                  }
+                }
+        /*-------------------------*/
+
         .demo-header {
             background: #32ade6cc;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -233,10 +301,27 @@
                     EN
                 </a>
 
-                <a href="{{ request()->fullUrlWithQuery(['lang' => 'es']) }}"
+                <a href="#"
                     class="lang-btn {{ app()->getLocale() === 'es' ? 'active' : '' }}" title="Español (ES)">
                     ES
                 </a>
+                <ul class="lang-submenu">
+                    <li>
+                        <a href="https://experience.gocontact.com.co/health?lang=es-mx" title="México">
+                            <img src="{{ asset('images/health/mx.svg') }}" alt="Bandera de México">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://experience.gocontact.com.co/health?lang=es-co" title="Colombia">
+                            <img src="{{ asset('images/health/co.svg') }}" alt="Bandera de Colombia">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://experience.gocontact.com.co/health?lang=es-es" title="España">
+                            <img src="{{ asset('images/health/es.svg') }}" alt="Bandera de España">
+                        </a>
+                    </li>
+                </ul>
             </div>
 
             <button class="demo-nav-toggle" id="demo-nav-toggle" aria-label="Open menu" aria-expanded="false">
