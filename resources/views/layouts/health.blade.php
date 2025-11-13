@@ -21,14 +21,16 @@
         document.addEventListener('DOMContentLoaded', function() {
               const esBtn = document.getElementById('lang-es-btn');
               const submenu = document.querySelector('.lang-submenu');
-            
+
+              console.log(esBtn, submenu);
+
               if (esBtn && submenu) {
                 esBtn.addEventListener('click', function(e) {
                   e.preventDefault();
                   e.stopPropagation();
                   submenu.classList.toggle('open');
                 });
-            
+
                 document.addEventListener('click', function(e) {
                   if (!esBtn.contains(e.target) && !submenu.contains(e.target)) {
                     submenu.classList.remove('open');
@@ -77,13 +79,13 @@
                 .lang-submenu li a:hover {
                   background: rgba(0, 0, 0, 0.05);
                 }
-                
+
                 .lang-submenu.open {
                   opacity: 1;
                   visibility: visible;
                   transform: translateY(0);
                 }
-                
+
                 /* responsive */
                 @media (max-width: 900px) {
                   .lang-submenu {
@@ -301,23 +303,23 @@
                     EN
                 </a>
 
-                <a href="#"
+                <a href="#" id="lang-es-btn"
                     class="lang-btn {{ app()->getLocale() === 'es' ? 'active' : '' }}" title="Español (ES)">
                     ES
                 </a>
                 <ul class="lang-submenu">
                     <li>
-                        <a href="https://experience.gocontact.com.co/health?lang=es-mx" title="México">
+                        <a href="{{ request()->fullUrlWithQuery(['lang' => 'es-mx']) }}" title="México">
                             <img src="{{ asset('images/health/mx.svg') }}" alt="Bandera de México">
                         </a>
                     </li>
                     <li>
-                        <a href="https://experience.gocontact.com.co/health?lang=es-co" title="Colombia">
+                        <a href="{{ request()->fullUrlWithQuery(['lang' => 'es-co']) }}" title="Colombia">
                             <img src="{{ asset('images/health/co.svg') }}" alt="Bandera de Colombia">
                         </a>
                     </li>
                     <li>
-                        <a href="https://experience.gocontact.com.co/health?lang=es-es" title="España">
+                        <a href="{{ request()->fullUrlWithQuery(['lang' => 'es-es']) }}" title="España">
                             <img src="{{ asset('images/health/es.svg') }}" alt="Bandera de España">
                         </a>
                     </li>
