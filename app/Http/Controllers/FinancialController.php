@@ -112,7 +112,15 @@ class FinancialController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $token = env('GOTRAVEL_TOKEN');
+        $url = env('GOTRAVEL_URL');
+
+        $response = Http::withToken($token)->get($url . 'debt-collection/' . $id);
+
+        $debtCollectionObject = $response->object();
+        $debtCollection = $debtCollectionObject->response->data;
+
+        return view('financial.confirmation', compact('debtCollection'));
     }
 
     /**

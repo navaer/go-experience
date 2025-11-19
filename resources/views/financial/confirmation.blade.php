@@ -10,7 +10,7 @@
   <div class="demo-container demo-hero_wrap">
     <div data-aos="fade-right" class="demo-hero_photo">
       <figure class="demo-hero_frame">
-        <img src="content/img/gf-hero.png" alt="Finance analyst working (placeholder)">
+        <img src="{{ asset('images/financial/gf-hero.png') }}" alt="Finance analyst working (placeholder)">
       </figure>
     </div>
     <div class="demo-hero_text">
@@ -41,7 +41,7 @@
           </div>
           <div class="demo-kv_text">
             <small>Full name</small>
-            <strong>Alex Johnson</strong>
+            <strong>{{ $debtCollection->name }}</strong>
           </div>
         </div>
 
@@ -52,7 +52,7 @@
           </div>
           <div class="demo-kv_text">
             <small>Phone</small>
-            <strong>(000) 555-0149</strong>
+            <strong>{{ $debtCollection->phone }}</strong>
           </div>
         </div>
 
@@ -62,7 +62,7 @@
           </div>
           <div class="demo-kv_text">
             <small>Email</small>
-            <strong>alex.johnson@example.com</strong>
+            <strong>{{ $debtCollection->email }}</strong>
           </div>
         </div>
 
@@ -73,7 +73,7 @@
           </div>
           <div class="demo-kv_text">
             <small>Loan Type</small>
-            <strong>Personal</strong>
+            <strong>{{ $debtCollection->loan_type }}</strong>
           </div>
         </div>
 
@@ -84,10 +84,10 @@
           </div>
           <div class="demo-kv_text">
             <small>Location</small>
-            <strong>Miami</strong>
+            <strong>{{ $debtCollection->location }}</strong>
           </div>
         </div>
-        
+
       </article>
 
       <!-- Card 2: Details you provided -->
@@ -100,7 +100,7 @@
           </div>
           <div class="demo-kv_text">
             <small>Product/Description</small>
-            <strong>Loan</strong>
+            <strong>{{ $debtCollection->product }}</strong>
           </div>
         </div>
 
@@ -110,7 +110,7 @@
           </div>
           <div class="demo-kv_text">
             <small>Requested Amount</small>
-            <strong>$0000000000</strong>
+            <strong>{{ $debtCollection->amount }}</strong>
           </div>
         </div>
 
@@ -121,7 +121,7 @@
           </div>
           <div class="demo-kv_text">
             <small>Employment Status</small>
-            <strong>Full Time</strong>
+            <strong>{{ $debtCollection->employee_status }}</strong>
           </div>
         </div>
 
@@ -132,18 +132,7 @@
           </div>
           <div class="demo-kv_text">
             <small>Prefered contact method</small>
-            <strong>SMS</strong>
-          </div>
-        </div>
-
-        <div class="demo-kv">
-          <div class="demo-ico" aria-hidden="true">
-            <!-- note -->
-            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
-          </div>
-          <div class="demo-kv_text">
-            <small>Agent</small>
-            <strong>PLACEHOLDER</strong>
+            <strong>{{ $debtCollection->preferred_contact_type }}</strong>
           </div>
         </div>
 

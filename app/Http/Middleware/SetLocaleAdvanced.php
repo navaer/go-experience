@@ -16,7 +16,7 @@ class SetLocaleAdvanced
     /**
      * Los idiomas que tu aplicación soporta.
      */
-    protected array $availableLocales = ['es', 'en', 'pt'];
+    protected array $availableLocales = ['es', 'en', 'pt', 'es-mx', 'es-co', 'es-es'];
 
     /**
      * Maneja la solicitud entrante y configura el idioma apropiado.
@@ -47,17 +47,37 @@ class SetLocaleAdvanced
 
         // 4️⃣ Si no hay nada, detectar idioma del navegador
         else {
-            $browserLocale = substr($request->getPreferredLanguage($this->availableLocales), 0, 2);
+            $browserLocale = $request->getPreferredLanguage($this->availableLocales);
+
+            // Si el navegador envía "es-MX", "es-CO", etc., normalizar a minúsculas para comparar
+            if (is_string($browserLocale)) {
+                $browserLocale = strtolower($browserLocale);
+            }
+
             $locale = in_array($browserLocale, $this->availableLocales)
                 ? $browserLocale
-                : config('app.fallback_locale');
+                : (
+                    // Si no coincide variante exacta, usar solo los primeros 2 caracteres (ej: "es")
+                    in_array(substr($browserLocale ?? '', 0, 2), $this->availableLocales)
+                        ? substr($browserLocale, 0, 2)
+                        : config('app.fallback_locale')
+                );
 
             Session::put('locale', $locale);
             Cookie::queue(cookie('user_lang', $locale, 60 * 24 * 30));
         }
 
         // 5️⃣ Aplicar idioma a la aplicación
-        App::setLocale($locale);
+        // Laravel usa el "locale" para buscar carpetas en resources/lang.
+        // Si usamos variantes (es-mx, es-co, es-es) pero solo tenemos /lang/es,
+        // debemos mapearlas al locale base para que no caiga en inglés (fallback).
+        $effectiveLocale = $locale;
+
+        if (is_string($locale) && str_starts_with($locale, 'es-')) {
+            $effectiveLocale = 'es';
+        }
+
+        App::setLocale($effectiveLocale);
 
         // 6️⃣ 🔥 A partir de aquí, todas las rutas generadas incluirán ?lang=xx
         URL::defaults(['lang' => $locale]);
