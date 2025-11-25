@@ -46,27 +46,10 @@
                     EN
                 </a>
 
-                <a href="#" id="lang-es-btn" class="lang-btn {{ Str::startsWith(app()->getLocale(), 'es') ? 'active' : '' }}"
-                    title="Español (ES)">
-                    ES {{app()->getLocale()}}
+                <a href="{{ request()->fullUrlWithQuery(['lang' => 'es']) }}"
+                    class="lang-btn {{ app()->getLocale() === 'es' ? 'active' : '' }}" title="Español (ES)">
+                    ES
                 </a>
-                <ul class="lang-submenu">
-                    <li>
-                        <a href="{{ request()->fullUrlWithQuery(['lang' => 'es-mx']) }}" title="México">
-                            <img src="{{ asset('images/health/mx.svg') }}" alt="Bandera de México">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ request()->fullUrlWithQuery(['lang' => 'es-co']) }}" title="Colombia">
-                            <img src="{{ asset('images/health/co.svg') }}" alt="Bandera de Colombia">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ request()->fullUrlWithQuery(['lang' => 'es-es']) }}" title="España">
-                            <img src="{{ asset('images/health/es.svg') }}" alt="Bandera de España">
-                        </a>
-                    </li>
-                </ul>
             </div>
 
             <button class="demo-nav-toggle" id="demo-nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -93,27 +76,6 @@
             if (window.AOS) AOS.init({
                 once: true
             });
-        });
-        /* ES lang selector script */
-        document.addEventListener('DOMContentLoaded', function() {
-            const esBtn = document.getElementById('lang-es-btn');
-            const submenu = document.querySelector('.lang-submenu');
-
-            console.log(esBtn, submenu);
-
-            if (esBtn && submenu) {
-                esBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    submenu.classList.toggle('open');
-                });
-
-                document.addEventListener('click', function(e) {
-                    if (!esBtn.contains(e.target) && !submenu.contains(e.target)) {
-                        submenu.classList.remove('open');
-                    }
-                });
-            }
         });
     </script>
 

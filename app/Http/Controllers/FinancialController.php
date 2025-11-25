@@ -104,7 +104,7 @@ class FinancialController extends Controller
             flash(__('Whoops! Something went wrong.'))->error();
         }
 
-        return redirect('financial?id=' . $debtCollection->id);
+        return redirect('financial/' . $debtCollection->id);
     }
 
     /**

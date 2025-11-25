@@ -16,7 +16,7 @@ class SetLocaleAdvanced
     /**
      * Los idiomas que tu aplicación soporta.
      */
-    protected array $availableLocales = ['es', 'en', 'pt', 'es-mx', 'es-co', 'es-es'];
+    protected array $availableLocales = ['es', 'en', 'pt'];
 
     /**
      * Maneja la solicitud entrante y configura el idioma apropiado.

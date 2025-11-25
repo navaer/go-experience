@@ -19,7 +19,7 @@
                     <br>{{ __('for your everyday money moments') }}
                 </h1>
                 <p data-aos="fade-up" class="demo-sub">
-                    {{ __('Open accounts, move money, and earn rewards with secure, mobile-first tools today.') }}</p>
+                    {{ __('Open accounts, move money, and earn rewards with secure, mobile-first tools today') }}.</p>
                 <div class="demo-hero_ctas" style="margin-top:14px">
                     <a href="#demo-faq" class="demo-btn demo-btn--primary">{{ __('Get Started') }}</a>
                     <a href="#demo-cards" class="demo-btn"
@@ -35,9 +35,9 @@
             {{ html()->form('POST', url('financial'))->class('demo-form')->attributes(['data-aos' => 'fade-right'])->open() }}
             <h3 id="demo-appt-title">{{ __('Start your application') }}</h3>
             <ul>
-                <li>{{ __('No impact to your credit score to start your application.') }}</li>
-                <li>{{ __('DIC insured up to the legal limit.') }}</li>
-                <li>{{ __('Zero liability on unauthorized debit card purchases.') }}</li>
+                <li>{{ __('No impact to your credit score to start your application') }}.</li>
+                <li>{{ __('DIC insured up to the legal limit') }}.</li>
+                <li>{{ __('Zero liability on unauthorized debit card purchases') }}.</li>
             </ul>
             <div class="demo-form-grid">
                 <div class="demo-field">
@@ -53,6 +53,10 @@
                     {{ html()->text('email')->id('email')->class('demo-input')->required() }}
                 </div>
                 <div class="demo-field">
+                    {{ html()->label(__('Personal ID') . ' *')->for('id_number') }}
+                    {{ html()->text('id_number')->id('id_number')->class('demo-input')->required() }}
+                </div>
+                <div class="demo-field">
                     {{ html()->label(__('Loan Type') . ' *')->for('loan_type') }}
                     {{ html()->select('loan_type', $loanTypes, null)->placeholder(__('Select an option'))->id('loan_type')->class('demo-input')->required() }}
                 </div>
@@ -61,7 +65,7 @@
                     {{ html()->select('location', $locations, null)->placeholder(__('Select an option'))->id('location')->class('demo-input')->required() }}
                 </div>
                 <div class="demo-field">
-                    {{ html()->label(__('Product/Description') . ' *')->for('product') }}
+                    {{ html()->label(__('Product') . '/' . __('Description') . ' *')->for('product') }}
                     {{ html()->text('product')->id('product')->class('demo-input')->required() }}
                 </div>
                 <div class="demo-field">
@@ -116,30 +120,26 @@
             <div class="demo-cards_grid">
                 <article data-aos="fade-up" class="demo-card">
                     <div class="demo-card_ico"><img src="{{ asset('images/financial/gf-ico-5.png') }}"></div>
-                    <h3>{{ __('How Mobile Deposit works') }}</h3>
-                    <p> {{ __('Snap both sides, confirm amount, submit in app. Your funds are typically available after
-                                                                                        standard hold.') }}
+                    <h3>{{ __('How Mobile Deposit Works') }}</h3>
+                    <p> {{ __('Snap both sides, confirm amount, submit in app. Your funds are typically available after standard hold.') }}
                     </p>
                 </article>
                 <article data-aos="fade-up" class="demo-card">
                     <div class="demo-card_ico"><img src="{{ asset('images/financial/gf-ico-5.png') }}"></div>
                     <h3>{{ __('Understanding APY and APR') }}</h3>
-                    <p>{{ __('APY shows deposit growth with compounding. APR shows borrowing cost before fees and monthly
-                                                                                    compounding.') }}
+                    <p>{{ __('APY shows deposit growth with compounding. APR shows borrowing cost before fees and monthly compounding.') }}
                     </p>
                 </article>
                 <article data-aos="fade-up" class="demo-card">
                     <div class="demo-card_ico"><img src="{{ asset('images/financial/gf-ico-5.png') }}"></div>
                     <h3>{{ __('Protect against account fraud') }}</h3>
-                    <p>{{ __('Enable two-factor authentication, set transaction alerts, lock your card instantly, and report
-                                                                                    suspicious activity.') }}
+                    <p>{{ __('Enable two-factor authentication, set transaction alerts, lock your card instantly, and report suspicious activity.') }}
                     </p>
                 </article>
                 <article data-aos="fade-up" class="demo-card">
                     <div class="demo-card_ico"><img src="{{ asset('images/financial/gf-ico-5.png') }}"></div>
                     <h3>{{ __('Business cash management') }}</h3>
-                    <p>{{ __('Streamline ACH payables, receivables, and wires, auto-sweep excess funds, and reconcile faster
-                                                                                    with bank feeds.') }}
+                    <p>{{ __('Streamline ACH payables, receivables, and wires, auto-sweep excess funds, and reconcile faster with bank feeds.') }}
                     </p>
                 </article>
             </div>
@@ -155,8 +155,7 @@
                 <h3 data-aos="fade-right" id="demo-band-title">{{ __('Trusted by Customers & Communities Nationwide') }}
                 </h3>
                 <p data-aos="fade-right" class="demo-sub" style="color:#dcecff">
-                    {{ __('From everyday checking to treasury
-                                                                                services, GoFinancial delivers secure, transparent banking with tools that fit how you bank today.') }}
+                    {{ __('From everyday checking to treasury services, GoFinancial delivers secure, transparent banking with tools that fit how you bank today.') }}
                 </p>
                 <ul class="demo-checks">
                     <li data-aos="fade-right"><span class="tick">✓</span> {{ __('40+ years of regional expertise') }}
