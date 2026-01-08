@@ -32,6 +32,8 @@ class HealthController extends Controller
 
         $frontAgents = $this->getDemoUsers();
 
+        return $frontAgents;
+
         return view('health.index', compact('locations', 'specialties', 'frontAgents'));
     }
 
@@ -186,16 +188,17 @@ class HealthController extends Controller
         $locale = app()->getLocale();
 
         // Asignar campaign_id dinámico según el idioma
-        $campaign_id = match ($locale) {
-            'es' => 'GoHealth ES',
-            'en' => 'GoHealth EN',
-            'pt' => 'GoHealth PT',
-            default => 'GoHealth', // fallback si llega otro idioma
+        // Para español, incluir MX y COL
+        $campaign_ids = match ($locale) {
+            'es' => ['GoHealth MX', 'GoHealth COL', 'GoHealth ES'],
+            'en' => ['GoHealth EN'],
+            'pt' => ['GoHealth PT'],
+            default => ['GoHealth'],
         };
 
 
         $response = Http::withToken($token)->post($url . 'go_demo_users/search', [
-            'campaign_id' => $campaign_id,
+            'campaign_id' => $campaign_ids,
         ]);
 
         return $response->object();
