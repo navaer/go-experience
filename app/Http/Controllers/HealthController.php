@@ -32,8 +32,6 @@ class HealthController extends Controller
 
         $frontAgents = $this->getDemoUsers();
 
-        return $frontAgents;
-
         return view('health.index', compact('locations', 'specialties', 'frontAgents'));
     }
 
