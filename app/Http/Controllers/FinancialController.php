@@ -180,16 +180,17 @@ class FinancialController extends Controller
         $locale = app()->getLocale();
 
         // Asignar campaign_id dinámico según el idioma
-        $campaign_id = match ($locale) {
-            'es' => 'GoFinancial ES',
-            'en' => 'GoFinancial EN',
-            'pt' => 'GoFinancial PT',
-            default => 'GoFinancial', // fallback si llega otro idioma
+        // Para español, incluir MX y COL
+        $campaign_ids = match ($locale) {
+            'es' => ['GoFinancial MX', 'GoFinancial COL', 'GoFinancial ES'],
+            'en' => ['GoFinancial EN'],
+            'pt' => ['GoFinancial PT'],
+            default => ['GoFinancial'],
         };
 
 
         $response = Http::withToken($token)->post($url . 'go_demo_users/search', [
-            'campaign_id' => $campaign_id,
+            'campaign_id' => $campaign_ids,
         ]);
 
         return $response->object();

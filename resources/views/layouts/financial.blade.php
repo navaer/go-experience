@@ -120,6 +120,26 @@
         AOS.init();
     </script>
 
+    <!-- Visor chat widget -->
+    <div id='example-widget-container'>
+        <script src='https://chatwidget-flows2-0.visor.ai/dist/js/visor.js'></script>
+    </div>
+    <script>
+        if (typeof Visor !== 'undefined' && Visor) {
+
+            Visor.destroy();
+
+            setTimeout(() => {
+                Visor.init({
+                    apptoken: '{{ env('VISOR_TOKEN', '') }}',
+                    environment: '{{ env('VISOR_ENVIRONMENT', '') }}',
+                    tab: '68fb7baeee73ec059ef5a0f7'
+                });
+            }, 100);
+        }
+    </script>
+    <script src='https://chatwidget-flows2-0.visor.ai/socket.io/socket.io.js'></script>
+
     @include('flash::message')
     @yield('custom-scripts')
 
